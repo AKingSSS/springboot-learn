@@ -5,3 +5,17 @@ server:
 spring:
   application:
     name: quickstart
+
+person:
+  last-name: Python大星
+#  age: 19
+  boss: true
+  birth: 2020/04/02
+  maps: {k1: v1,k2 : 12}
+  lists:
+    - lisi
+    - zhaoliu
+  dog:
+    name: 小狗
+    age: 2
+
