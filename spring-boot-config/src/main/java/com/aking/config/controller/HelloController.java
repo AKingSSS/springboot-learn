@@ -1,4 +1,4 @@
-package com.aking.demo.controller;
+package com.aking.config.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

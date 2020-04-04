@@ -5,6 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-web</module>
+        <module>spring-boot-config</module>
+        <module>spring-boot-token</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -44,6 +46,11 @@
             <optional>true</optional>
         </dependency>
         <!-- spring boot  end-->
+        <!-- lombok 简化实体类编写-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

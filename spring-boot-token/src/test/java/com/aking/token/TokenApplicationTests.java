@@ -1,10 +1,10 @@
-package com.aking.demo;
+package com.aking.token;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConfigApplicationTests {
+class TokenApplicationTests {
 
     @Test
     void contextLoads() {

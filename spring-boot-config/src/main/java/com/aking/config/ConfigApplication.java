@@ -1,4 +1,4 @@
-package com.aking.demo;
+package com.aking.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
