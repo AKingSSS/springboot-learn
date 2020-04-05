@@ -14,8 +14,8 @@ import javax.annotation.Resource;
  * @Version 1.0
  **/
 @RestController
-@RequestMapping("redis")
-public class HelloController {
+@RequestMapping("string")
+public class RedisStringController {
     @Resource
     private RedisUtil redisUtil;
 
@@ -43,16 +43,56 @@ public class HelloController {
      */
     @RequestMapping("get.do")
     public Object redisGet(String key){
-        return redisUtil.get(key);
+        Object obj = redisUtil.get(key);
+        if (obj == null) {
+            return "缓存为空";
+        } else {
+            return redisUtil.get(key);
+        }
     }
 
     /**
-     * 设置过期时间
+     * 指定缓存失效时间
      * @param key
      * @return
      */
     @RequestMapping("expire.do")
     public boolean expire(String key){
         return redisUtil.expire(key,ExpireTime);
+    }
+
+    /**
+     * 指定缓存失效时间
+     * @param key
+     * @return
+     */
+    @RequestMapping("getExpire.do")
+    public long getExpire(String key){
+        return redisUtil.getExpire(key);
+    }
+
+    /**
+     * 判断 key是否存在
+     * @param key
+     * @return
+     */
+    @RequestMapping("hasKey.do")
+    public boolean hasKey(String key){
+        return redisUtil.hasKey(key);
+    }
+
+    /**
+     * 删除缓存
+     * @param key
+     * @return
+     */
+    @RequestMapping("del.do")
+    public String del(String key){
+        try {
+            redisUtil.del(key);
+            return "删除成功";
+        } catch (Exception e) {
+            return "删除失败";
+        }
     }
 }
