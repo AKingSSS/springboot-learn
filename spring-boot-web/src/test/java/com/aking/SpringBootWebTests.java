@@ -32,8 +32,8 @@ public class SpringBootWebTests {
 
     @Test
     public void contextLoads() {
-//        System.out.println(person);
-//        System.out.println(son);
+/*        System.out.println(person);
+        System.out.println(son);*/
         System.out.println(girl);
     }
 
