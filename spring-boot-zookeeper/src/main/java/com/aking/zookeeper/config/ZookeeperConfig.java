@@ -56,8 +56,12 @@ public class ZookeeperConfig {
                 public void process(WatchedEvent event) {
                     if(Event.KeeperState.SyncConnected==event.getState()){
                         //如果收到了服务端的响应事件,连接成功
+                        System.out.println("连接成功");
                         countDownLatch.countDown();
                     }
+                    System.out.println("path = " + event.getPath());
+                    System.out.println("eventType = " + event.getType());
+
                 }
             });
             countDownLatch.await();

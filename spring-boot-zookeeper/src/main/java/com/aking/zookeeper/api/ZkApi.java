@@ -7,7 +7,6 @@ import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -44,7 +43,7 @@ public class ZkApi {
     /**
      * 检测结点是否存在 并设置监听事件
      * 三种监听类型： 创建，删除，更新
-     *
+     * 一次性的
      * @param path
      * @param watcher 传入指定的监听类
      * @return
@@ -125,7 +124,7 @@ public class ZkApi {
 
     /**
      * 获取指定节点的值
-     *
+     * 节点删除，节点内容发生变化
      * @param path
      * @return
      */
