@@ -38,6 +38,8 @@ public class ZkWatcher implements Watcher {
                     System.out.println("短信提醒");
                 } else if (event.getState() == Event.KeeperState.Expired) {
                     System.out.println("会话超时");
+                    // 重新连接
+                    zooKeeper = new ZooKeeper("127.0.0.1:2181",5000,new ZkWatcher());
                 } else if(event.getState() == Event.KeeperState.AuthFailed) {
                     System.out.println("认证失败");
                 }
