@@ -11,6 +11,7 @@
         <module>spring-boot-dubbo-api</module>
         <module>spring-boot-dubbo-consumer</module>
         <module>spring-boot-dubbo-provider</module>
+        <module>spring-boot-ioc</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
