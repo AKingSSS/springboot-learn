@@ -1,3 +1,18 @@
+# Getting Started
+
+###1、启动 banner更换
+- 增加 banner.txt 文件
+
+###2、 yml 与 properties 的区别？
+- properties 文件都需要写全，yml 前面相同的可以不写，一层对应一层
+- 在 yml 文件中有些细节需要注意，冒号后面要空一格再写值
+- yml 文件天然的树状结构，一目了然，实质上跟 properties 是差不多的
+
+###3、多配置文件处理
+- 在 application.yml 中配置一下内容，springboot 在启动时会自动解析 application-XXX.yml 文件下的配置
+
+###4、web 简单配置
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -5,14 +20,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-web</module>
-        <module>spring-boot-config</module>
-        <module>spring-boot-token</module>
-        <module>spring-boot-redis</module>
-        <module>spring-boot-dubbo-api</module>
-        <module>spring-boot-dubbo-consumer</module>
-        <module>spring-boot-dubbo-provider</module>
-        <module>spring-boot-ioc</module>
-        <module>spring-boot-mysql</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -36,40 +43,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <!-- web开发-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 集成 redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <!--dubbo start-->
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>0.2.0</version>
-        </dependency>
-        <!--dubbo end-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--读取配置文件参数需要依赖的包-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
         <!-- spring boot  end-->
-        <!-- lombok 简化实体类编写-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -82,3 +65,7 @@
     </build>
 
 </project>
+
+```
+###5、读取配置文件参数
+> application.yml ,全局配置文件

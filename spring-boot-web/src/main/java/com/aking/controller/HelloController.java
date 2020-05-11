@@ -1,7 +1,11 @@
 package com.aking.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName HelloController
@@ -12,10 +16,33 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class HelloController {
-
-    @RequestMapping(path = {"/helloSpringBoot"})
+    /**
+     * 输出 hello world
+     * @return
+     */
+    @GetMapping(path = {"/helloSpringBoot"})
     public String HelloSpring (){
         System.out.println("hello spring boot");
         return "hello spring boot";
+    }
+
+    /**
+     * 模拟死循环伪代码
+     * @return
+     */
+    @GetMapping(path = {"/letCpuBusy"})
+    public void letCpuBusy (){
+        int i=0;
+        while(true) {
+            i++;
+        }
+    }
+
+    public static void main(String[] args) {
+        while (true) {
+            String s = new String("abc");
+            List list = new ArrayList();
+            list.add(s);
+        }
     }
 }

@@ -18,8 +18,12 @@ public class IocApplicationTests {
     @Qualifier("activityService")
     private ActivityService activityService;*/
 
-    @Autowired
+/*    @Autowired
     @Qualifier("lotteryActivityService")
+    private ActivityService activityService;    */
+
+    @Autowired
+    @Qualifier("lotteryService")
     private ActivityService activityService;
 
     @Resource

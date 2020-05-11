@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aking.manager.ActivityDao">
+    <resultMap id="activityResult" type="com.aking.domain.Activity">
+        <result column="id" property="id"/>
+        <result column="creator_id" property="creatorId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modified_time" property="modifiedTime"/>
+        <result column="last_modifier_id" property="lastModifierId"/>
+        <result column="title" property="title"/>
+        <result column="hot" property="hot"/>
+        <result column="main_pic_url" property="mainPicUrl"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="host" property="host"/>
+        <result column="brands" property="brands"/>
+        <result column="long_pic_url" property="longPicUrl"/>
+        <result column="remark" property="remark"/>
+        <result column="instruction" property="instruction"/>
+        <result column="publish_status" property="publishStatus"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+    <select id="findActivityList" resultMap="activityResult">
+        select * from `platform_admin`.`activity`;
+    </select>
+</mapper>
