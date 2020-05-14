@@ -7,7 +7,7 @@
     <springProperty scope="context" name="FILE_PATH" source="logging.home"/>
     <!--日志格式-->
     <property name="LOG_PATTERN"
-              value="%date{yyyy-MM-dd HH:mm:ss}||%-5level||${HOSTNAME}||${SERVER_NAME}||00||00||%logger{36}||%msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} -%5p ${PID:-} --- [%15.15t] %-40.40logger{39}%5L: %m%n"/>
     <!-- 保留30天的日志 -->
     <property name="MAX_HISTORY" value="30"/>
     <!-- 日志单文件大小限制-->
