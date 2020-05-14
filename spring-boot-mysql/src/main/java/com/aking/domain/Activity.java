@@ -17,7 +17,7 @@ public class Activity extends AbstractDataDomain {
      * 活动标题（少于30字）
      *  final 修饰不会生成 setter 方法
      */
-    private final String title;
+    private String title;
     /**
      * 热门标识
      * 0：非热门；1：热门
