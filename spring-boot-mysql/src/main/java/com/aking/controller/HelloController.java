@@ -1,16 +1,12 @@
 package com.aking.controller;
 
+import com.aking.annotations.WebLog;
 import com.aking.domain.Activity;
 import com.aking.service.ActivityService;
-import com.aking.service.impl.ActivityServiceImpl;
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,18 +31,17 @@ public class HelloController {
      * @return
      */
     @GetMapping("/findActivityList.do")
-    public List<Activity> findActivityList() {
+    @WebLog(resultRequired = false)
+    public List<Activity> findActivityList(@RequestParam("brandName") String brandName) {
         List<Activity> activityList = new ArrayList<>();
-        log.info("this method is {} ", "findActivityList");
         Activity activity = new Activity();
-        activity.setBrands("西门子");
+        activity.setBrands(brandName);
         try {
             activityList = activityService.findActivityList();
-            log.info("activityList = {}", JSONObject.toJSONString(activityList));
-            int i = 1 / 0;
+//            int i = 1 / 0;
         } catch (Exception e) {
-            //错误
-            log.error("findActivityList msg = {}", e.getMessage());
+/*            //错误
+            log.error("findActivityList msg = {}", e.getMessage());*/
             //正确
             log.error("findActivityList msg = {}", e);
         }
