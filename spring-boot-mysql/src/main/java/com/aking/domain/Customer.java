@@ -29,7 +29,7 @@ public class Customer {
     /**
      * 注册校验规则
      */
-    public interface UserRegisterValidView extends Default {
+    public interface UserRegisterValidView {
     }
 
     /**

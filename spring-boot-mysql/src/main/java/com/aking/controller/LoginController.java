@@ -3,14 +3,16 @@ package com.aking.controller;
 import com.aking.domain.Customer;
 import com.aking.domain.CustomerList;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import javax.xml.ws.BindingProvider;
+import javax.validation.groups.Default;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName LoginController
@@ -44,10 +46,13 @@ public class LoginController {
      * @return
      */
     @PostMapping("/register.do")
-    public String register(@RequestBody @Validated(value = { Customer.UserRegisterValidView.class }) Customer customer,
+    public String register(@RequestBody @Validated(value = { Customer.UserRegisterValidView.class, Default.class})
+                                       Customer customer,
                            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return bindingResult.getFieldError().getDefaultMessage();
+            String message = bindingResult.getAllErrors().stream().
+                    map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
+            return message;
         }
         return "success";
     }
