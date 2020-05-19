@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CAuthSessionDTO implements Serializable {
+public class AuthSessionDTO implements Serializable {
     private static final long serialVersionUID = -4415234688476992412L;
 
     private String token;

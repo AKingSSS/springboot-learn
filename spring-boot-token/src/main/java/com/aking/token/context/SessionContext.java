@@ -1,6 +1,6 @@
 package com.aking.token.context;
 
-import com.aking.token.dto.CAuthSessionDTO;
+import com.aking.token.dto.AuthSessionDTO;
 import org.springframework.core.NamedThreadLocal;
 
 /**
@@ -14,13 +14,13 @@ import org.springframework.core.NamedThreadLocal;
  * @Version 1.0
  **/
 public class SessionContext {
-    private static final ThreadLocal<CAuthSessionDTO> CURRENT_SESSION = new NamedThreadLocal<>("session");
+    private static final ThreadLocal<AuthSessionDTO> CURRENT_SESSION = new NamedThreadLocal<>("session");
 
-    public static CAuthSessionDTO getSession() {
+    public static AuthSessionDTO getSession() {
         return CURRENT_SESSION.get();
     }
 
-    public static void setCurrentSession(CAuthSessionDTO session) {
+    public static void setCurrentSession(AuthSessionDTO session) {
         removeSession();
         CURRENT_SESSION.set(session);
     }
@@ -30,22 +30,22 @@ public class SessionContext {
     }
 
     public static String getToken() {
-        CAuthSessionDTO session = getSession();
+        AuthSessionDTO session = getSession();
         return null != session ? session.getToken() : "";
     }
 
     public static Long getUserId() {
-        CAuthSessionDTO session = getSession();
+        AuthSessionDTO session = getSession();
         return null != session ? session.getUserId() : null;
     }
 
     public static String getMobile() {
-        CAuthSessionDTO session = getSession();
+        AuthSessionDTO session = getSession();
         return null != session ? session.getMobile() : "";
     }
 
     public static String getName() {
-        CAuthSessionDTO session = getSession();
+        AuthSessionDTO session = getSession();
         return null != session ? session.getName() : "";
     }
 }

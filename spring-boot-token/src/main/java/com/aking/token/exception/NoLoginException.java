@@ -8,16 +8,6 @@ package com.aking.token.exception;
  * @Version 1.0
  **/
 public class NoLoginException extends RuntimeException {
-    public NoLoginException(String message) {
-        //这句话的意思是调用Exception的有参构造方法
-        super(message);
-    }
-
-    public static void main(String[] args) {
-        try {
-            throw new NoLoginException("未登录");
-        } catch (NoLoginException e) {
-            System.out.println("e.getMessage() = " + e.getMessage());
-        }
+    public NoLoginException() {
     }
 }
