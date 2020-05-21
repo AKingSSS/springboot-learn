@@ -2,14 +2,13 @@ package com.aking.token.controller;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.crypto.SecureUtil;
-import com.aking.token.annotations.CAuth;
+import com.aking.token.annotations.Auth;
+import com.aking.token.annotations.CurrentUser;
 import com.aking.token.context.SessionContext;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.aking.token.dto.AuthSessionDTO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -21,17 +20,18 @@ import java.time.LocalDateTime;
  **/
 @RestController
 @RequestMapping("/token")
+@Slf4j
 public class LoginTokenController {
     /**
      * 模拟登录，生成 token，前端保存到 header中
-     * token 里加密用户 id
      *
-     * @param username
+     * @param mobile
      * @return
      */
-    @RequestMapping("/login")
-    public String login(@RequestParam("username") String username) {
-        String token = SecureUtil.md5(username + "aKing" + DateUtil.formatLocalDateTime(LocalDateTime.now()));
+    @PostMapping("/login.do")
+    public String login(@RequestParam("username") String mobile, @RequestParam("password") String password) {
+        String token = SecureUtil.md5(mobile + "Python大星" + DateUtil.formatLocalDateTime(LocalDateTime.now()));
+        log.info("将 token = {}， 对应的用户信息保存到 Redis 中", token);
         return token;
     }
 
@@ -40,12 +40,23 @@ public class LoginTokenController {
      *
      * @return
      */
-    @CAuth
-    @RequestMapping("/buy")
+    @Auth(requireLogin = true)
+    @PostMapping("/buy.do")
     public String buy() {
         String name = SessionContext.getName();
-        return name;
+        // 购买业务 省略......
+        return "恭喜" + name + "下单成功";
     }
 
-
+    /**
+     * 保存用户信息
+     *
+     * @return
+     */
+    @Auth(requireLogin = true)
+    @GetMapping("/saveInfo.do")
+    public String saveInfo(@CurrentUser AuthSessionDTO authSessionDTO) {
+        String mobile = authSessionDTO.getMobile();
+        return mobile;
+    }
 }
