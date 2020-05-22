@@ -33,7 +33,7 @@ public class ThreadPoolExecutorConfig {
     @Bean(name = "asyncServiceExecutor")
     public Executor asyncServiceExecutor() {
         log.info("start asyncServiceExecutor");
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor = new MyThreadPoolTaskExecutor();
         //配置核心线程数
         executor.setCorePoolSize(corePoolSize);
         //配置最大线程数
