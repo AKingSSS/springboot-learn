@@ -31,14 +31,14 @@ public class HelloController {
      * @return
      */
     @GetMapping("/findActivityList.do")
-    @WebLog(resultRequired = false)
+    @WebLog(resultRequired = true)
     public List<Activity> findActivityList(@RequestParam("brandName") String brandName) {
         List<Activity> activityList = new ArrayList<>();
         Activity activity = new Activity();
         activity.setBrands(brandName);
         try {
             activityList = activityService.findActivityList();
-//            int i = 1 / 0;
+            int i = 1 / 0;
         } catch (Exception e) {
 /*            //错误
             log.error("findActivityList msg = {}", e.getMessage());*/

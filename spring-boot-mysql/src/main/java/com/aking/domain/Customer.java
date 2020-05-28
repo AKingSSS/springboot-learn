@@ -1,6 +1,7 @@
 package com.aking.domain;
 
 import com.aking.annotations.MyValid;
+import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -61,4 +62,13 @@ public class Customer {
     @Email(groups = { UserRegisterValidView.class }, message = "email 格式不正确")
     @NotBlank(groups = { UserRegisterValidView.class }, message = "email 不能为空")
     private String email;
+
+    public static void main(String[] args) {
+        Customer customer = new Customer();
+        customer.setUsername("111");
+        customer.setEmail("222");
+        customer.setPassword("21");
+        customer.setVerifyCode("12333");
+        System.out.println(new Gson().toJson(customer));
+    }
 }
