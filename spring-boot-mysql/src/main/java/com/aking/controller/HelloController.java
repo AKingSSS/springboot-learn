@@ -1,5 +1,6 @@
 package com.aking.controller;
 
+import com.aking.annotations.LoginRequired;
 import com.aking.annotations.WebLog;
 import com.aking.domain.Activity;
 import com.aking.service.ActivityService;
@@ -30,8 +31,9 @@ public class HelloController {
      *
      * @return
      */
-    @GetMapping("/findActivityList.do")
-    @WebLog(resultRequired = true)
+    @GetMapping(value = "/findActivityList.do")
+    @WebLog
+    @LoginRequired(loginRequired = false)
     public List<Activity> findActivityList(@RequestParam("brandName") String brandName) {
         List<Activity> activityList = new ArrayList<>();
         Activity activity = new Activity();
