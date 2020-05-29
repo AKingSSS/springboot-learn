@@ -14,6 +14,9 @@
         <module>spring-boot-ioc</module>
         <module>spring-boot-mysql</module>
         <module>spring-boot-encry</module>
+        <module>untitled</module>
+        <module>spring-boot-wx</module>
+        <module>spring-boot-task</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
