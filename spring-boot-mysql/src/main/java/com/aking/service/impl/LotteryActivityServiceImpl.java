@@ -16,9 +16,9 @@ import java.util.List;
  * @Date 2020/5/8 19:47
  * @Version 1.0
  **/
-@Service("activityService")
+@Service("lotteryActivityService")
 @Slf4j
-public class ActivityServiceImpl implements ActivityService {
+public class LotteryActivityServiceImpl implements ActivityService {
     @Autowired
     private ActivityDao activityDao;
     /**

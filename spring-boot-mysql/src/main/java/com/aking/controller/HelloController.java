@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +24,26 @@ import java.util.List;
 @RequestMapping("/test")
 @Slf4j
 public class HelloController {
+    // 属性注入
     @Autowired
     private ActivityService activityService;
+/*
+    // setter 注入
+    private ActivityService activityService;
+    //    @Autowired
+    public void setActivityService(ActivityService activityService) {
+        this.activityService = activityService;
+    }
+*/
+
+/*
+        // 构造器注入
+    private final ActivityService activityService;
+
+    public HelloController(ActivityService activityService) {
+        this.activityService = activityService;
+    }
+*/
 
     /**
      * 查找所有活动list
@@ -40,7 +59,7 @@ public class HelloController {
         activity.setBrands(brandName);
         try {
             activityList = activityService.findActivityList();
-            int i = 1 / 0;
+//            int i = 1 / 0;
         } catch (Exception e) {
 /*            //错误
             log.error("findActivityList msg = {}", e.getMessage());*/
