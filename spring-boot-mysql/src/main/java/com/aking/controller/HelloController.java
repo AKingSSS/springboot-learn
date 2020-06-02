@@ -7,6 +7,7 @@ import com.aking.service.ActivityService;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,8 +25,9 @@ import java.util.List;
 @RequestMapping("/test")
 @Slf4j
 public class HelloController {
-    // 属性注入
+
     @Autowired
+    @Qualifier("activityService1")
     private ActivityService activityService;
 /*
     // setter 注入
