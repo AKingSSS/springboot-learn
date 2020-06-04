@@ -14,6 +14,5 @@ import java.util.List;
  **/
 @Data
 public class CustomerList {
-    UserNoExistException
     private List<Customer> customers;
 }
