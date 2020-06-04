@@ -1,7 +1,10 @@
 package com.aking.unit.service.impl;
 
 import com.aking.unit.service.AService;
+import com.aking.unit.service.BService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,8 +17,14 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class AServiceImpl implements AService {
+    private BService bService;
+
+    @Autowired
+    public void setbService(BService bService) {
+        this.bService = bService;
+    }
+
     /**
-     *
      * @param a
      * @param b
      * @return
@@ -23,6 +32,7 @@ public class AServiceImpl implements AService {
     @Override
     public Integer add(Integer a, Integer b) {
         log.info("a = [{}],b = [{}]", a, b);
+        bService.multiply(a , b);
         return a + b;
     }
 }
