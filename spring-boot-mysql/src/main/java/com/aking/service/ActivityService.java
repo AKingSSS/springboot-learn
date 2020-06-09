@@ -1,6 +1,7 @@
 package com.aking.service;
 
 import com.aking.domain.Activity;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface ActivityService {
      * 查询用户列表
      * @return
      */
-    List<Activity> findActivityList();
+    PageInfo findActivityList();
 }

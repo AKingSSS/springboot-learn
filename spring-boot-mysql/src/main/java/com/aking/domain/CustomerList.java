@@ -15,4 +15,12 @@ import java.util.List;
 @Data
 public class CustomerList {
     private List<Customer> customers;
+
+    public static void main(String[] args) {
+        double d = 9.41;
+        for (int i = 0; i < 4; i++) {
+            d = d * 1.1;
+            System.out.println(String.format("d%s = %.2f", i + 1, d));
+        }
+    }
 }

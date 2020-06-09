@@ -21,6 +21,6 @@
         <result column="deleted" property="deleted"/>
     </resultMap>
     <select id="findActivityList" resultMap="activityResult">
-        select * from `platform_admin`.`activity`;
+        select * from `platform_admin`.`activity`
     </select>
 </mapper>

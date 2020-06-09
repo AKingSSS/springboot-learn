@@ -18,6 +18,8 @@
         <module>spring-boot-wx</module>
         <module>spring-boot-task</module>
         <module>spring-boot-unit-test</module>
+        <module>spring-boot-es</module>
+        <module>spring-boot-swagger</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

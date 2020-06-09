@@ -4,15 +4,14 @@ import com.aking.annotations.LoginRequired;
 import com.aking.annotations.WebLog;
 import com.aking.domain.Activity;
 import com.aking.service.ActivityService;
-import com.google.gson.Gson;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @ClassName HelloController
@@ -55,12 +54,12 @@ public class HelloController {
     @GetMapping(value = "/findActivityList.do")
     @WebLog
     @LoginRequired(loginRequired = false)
-    public List<Activity> findActivityList(@RequestParam("brandName") String brandName) {
-        List<Activity> activityList = new ArrayList<>();
+    public PageInfo findActivityList(@RequestParam("brandName") String brandName) {
+        PageInfo pageInfo = new PageInfo<>();
         Activity activity = new Activity();
         activity.setBrands(brandName);
         try {
-            activityList = activityService.findActivityList();
+            pageInfo = activityService.findActivityList();
 //            int i = 1 / 0;
         } catch (Exception e) {
 /*            //错误
@@ -68,6 +67,6 @@ public class HelloController {
             //正确
             log.error("findActivityList msg = {}", e);
         }
-        return activityList;
+        return pageInfo;
     }
 }
