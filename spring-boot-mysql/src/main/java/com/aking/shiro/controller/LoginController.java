@@ -1,4 +1,4 @@
-package com.aking.controller;
+package com.aking.shiro.controller;
 
 import com.aking.domain.Customer;
 import com.aking.domain.CustomerList;

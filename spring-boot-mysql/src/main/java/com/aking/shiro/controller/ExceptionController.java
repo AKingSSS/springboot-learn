@@ -1,4 +1,4 @@
-package com.aking.controller;
+package com.aking.shiro.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;

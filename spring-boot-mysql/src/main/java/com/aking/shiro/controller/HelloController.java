@@ -1,4 +1,4 @@
-package com.aking.controller;
+package com.aking.shiro.controller;
 
 import com.aking.annotations.LoginRequired;
 import com.aking.annotations.WebLog;

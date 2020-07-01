@@ -1,7 +1,5 @@
-package com.aking.controller;
+package com.aking.shiro.controller;
 
-import com.aking.ioc.service.HelloService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
