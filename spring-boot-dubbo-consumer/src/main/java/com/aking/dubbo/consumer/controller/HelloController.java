@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class HelloController {
-    @Reference(version = "${dubbo.service.version}",group = "${dubbo.provider.group}")
+    @Reference(version = "${dubbo.service.version}",
+            group = "${dubbo.provider.group}",
+    url = "${dubbo.provider.url}")
     private HelloService helloService;
 
     @RequestMapping("/hello.do")
-    public String sayHello() {
-        String s = helloService.sayHello("Python大星");
+    public String sayHello(String name) {
+        String s = helloService.sayHello(name);
         return s;
     }
 }
