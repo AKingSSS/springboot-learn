@@ -21,6 +21,8 @@
         <module>spring-boot-es</module>
         <module>spring-boot-swagger</module>
         <module>spring-boot-shiro</module>
+        <module>spring-boot-kafka-provider</module>
+        <module>spring-boot-kafka-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
