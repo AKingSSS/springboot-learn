@@ -34,7 +34,13 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
-            <version>1.1.2-beta5</version>
+            <version>2.2.6</version>
+        </dependency>
+        <!--easypoi excel操作-->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-spring-boot-starter</artifactId>
+            <version>3.3.0</version>
         </dependency>
     </dependencies>
 

@@ -8,6 +8,7 @@ import com.aking.excel.utils.excel.ExcelReader;
 import com.aking.excel.utils.excel.ExcelUtil;
 import com.aking.excel.utils.excel.easy.EasyExcelUtil;
 import com.alibaba.excel.EasyExcelFactory;
+import com.alibaba.excel.metadata.BaseRowModel;
 import com.alibaba.excel.metadata.Sheet;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
@@ -44,17 +45,16 @@ public class EasyExcelController {
      * @return
      */
     @GetMapping("/exportExcel.do")
-    public String exportExcel(HttpServletResponse response) throws IOException {
+    public void exportExcel(HttpServletResponse response) throws IOException {
         //以下信息从数据库中查出
-        List<Customer> customers = getCustomers();
+        List<ArrayList<Customer>> customerList = getCustomerList();
         try {
-            String fileName = "excelInfo";
-            String sheetName = "sheet1";
-            EasyExcelUtil.writeExcel(response, customers, fileName, sheetName, Customer.class);
+            String fileName = "支付单";
+            String sheetName = "表";
+            EasyExcelUtil.writeSheetsExcel(response, customerList, fileName, sheetName, Customer.class);
         } catch (Exception e) {
-            log.error("模板下载失败", e);
+            log.error("excel 下载失败", e);
         }
-        return "success";
     }
 
     /**
@@ -93,10 +93,31 @@ public class EasyExcelController {
             Customer customer = Customer
                     .builder()
                     .mobile("1880000000" + i)
-                    .name("测试" + i)
+                    .name("https://res1.bnq.com.cn/upload_pic_bnq_1594217533000,https://res1.bnq.com.cn/upload_pic_bnq_1594217537000,https://res1.bnq.com.cn/upload_pic_bnq_1594217540000,https://res1.bnq.com.cn/upload_pic_bnq_1594217544000,https://res1.bnq.com.cn/upload_pic_bnq_1594217553000" + i)
                     .build();
             customers.add(customer);
         }
+        return customers;
+    }
+
+    /**
+     * 模拟数据
+     * @return
+     */
+    private List<ArrayList<Customer>> getCustomerList() {
+        List<ArrayList<Customer>> customers = new ArrayList<>();
+        ArrayList<Customer> customerList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Customer customer = Customer
+                    .builder()
+                    .mobile("1880000000" + i)
+                    .name("https://res1.bnq.com.cn/upload_pic_bnq_1594217533000,https://res1.bnq.com.cn/upload_pic_bnq_1594217537000,https://res1.bnq.com.cn/upload_pic_bnq_1594217540000,https://res1.bnq.com.cn/upload_pic_bnq_1594217544000,https://res1.bnq.com.cn/upload_pic_bnq_1594217553000" + i)
+                    .build();
+            customerList.add(customer);
+        }
+        customers.add(customerList);
+        customers.add(customerList);
+        customers.add(customerList);
         return customers;
     }
 }

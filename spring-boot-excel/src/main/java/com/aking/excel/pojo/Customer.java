@@ -1,6 +1,7 @@
 package com.aking.excel.pojo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.metadata.BaseRowModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class Customer extends BaseRowModel {
+@ColumnWidth(25)
+public class Customer {
     @ExcelProperty(value = "姓名", index = 0)
     private String name;
     @ExcelProperty(value = "手机号", index = 1)
