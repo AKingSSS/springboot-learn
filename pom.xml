@@ -24,6 +24,8 @@
         <module>spring-boot-kafka-provider</module>
         <module>spring-boot-kafka-consumer</module>
         <module>spring-boot-excel</module>
+        <module>spring-boot-rocket-provider</module>
+        <module>spring-boot-rocket-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
