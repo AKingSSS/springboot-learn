@@ -18,6 +18,11 @@
             <artifactId>rocketmq-client</artifactId>
             <version>4.7.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.aking</groupId>
+            <artifactId>spring-boot-rocket-biz</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

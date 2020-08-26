@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version 1.0
  **/
 @SpringBootApplication
-public class RocketProviderApplication {
+ public class RocketProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(RocketProviderApplication.class, args);
     }

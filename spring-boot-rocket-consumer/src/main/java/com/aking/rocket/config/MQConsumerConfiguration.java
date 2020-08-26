@@ -2,6 +2,7 @@ package com.aking.rocket.config;
 
 import com.aking.rocket.exception.RocketMQException;
 import com.aking.rocket.handle.MessageListenerHandler;
+import com.aking.rocket.handle.MessageOrderListenerHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.exception.MQClientException;
@@ -37,6 +38,8 @@ public class MQConsumerConfiguration {
     private int consumeMessageBatchMaxSize;
     @Autowired
     private MessageListenerHandler messageListenerHandler;
+    @Autowired
+    private MessageOrderListenerHandler messageOrderListenerHandler;
 
     @Bean
     public DefaultMQPushConsumer getRocketMQConsumer() throws RocketMQException {
@@ -60,7 +63,7 @@ public class MQConsumerConfiguration {
          */
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
         /**
-         * 设置消费模型，集群还是广播，默认为集群
+         * 设置消费模型，负载均衡还是广播模式，默认为负载均衡
          */
         consumer.setMessageModel(MessageModel.CLUSTERING);
         /**
