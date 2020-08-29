@@ -27,6 +27,7 @@
         <module>spring-boot-rocket-provider</module>
         <module>spring-boot-rocket-consumer</module>
         <module>spring-boot-rocket-biz</module>
+        <module>spring-boot-io</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
