@@ -3,10 +3,8 @@ package com.aking.rocket.controller;
 import com.aking.rocket.util.ListSplitter;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.client.producer.MessageQueueSelector;
-import org.apache.rocketmq.client.producer.SendCallback;
-import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.client.producer.*;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.aking.rocket.vo.Order;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +33,8 @@ public class TestController {
 
     @Autowired
     private DefaultMQProducer defaultMQProducer;
+    @Autowired
+    private TransactionMQProducer transactionMQProducer;
 
     /**
      * 同步发送
@@ -196,6 +197,35 @@ public class TestController {
                 return "FAIL";
             }
         }
+        return "SUCCESS";
+    }
+
+    /**
+     * 发送事务消息
+     *
+     * @return
+     * @throws Throwable
+     */
+    @RequestMapping("sendTransaction")
+    public String sendTransaction() throws Throwable {
+        String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
+        for (int i = 0; i < 10; i++) {
+            try {
+                Message msg =
+                        new Message("TopicTest1234", tags[i % tags.length], "KEY" + i,
+                                ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
+                SendResult sendResult = transactionMQProducer.sendMessageInTransaction(msg, null);
+                System.out.printf("%s%n", sendResult);
+
+                Thread.sleep(10);
+            } catch (MQClientException | UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+        for (int i = 0; i < 100000; i++) {
+            Thread.sleep(1000);
+        }
+        transactionMQProducer.shutdown();
         return "SUCCESS";
     }
 }
