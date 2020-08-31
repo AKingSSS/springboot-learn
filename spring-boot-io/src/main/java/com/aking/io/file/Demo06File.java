@@ -4,21 +4,22 @@ import java.io.File;
 
 /**
  * @ClassName Demo02File
- * @Description 功能判断
+ * @Description 创建删除
  * @Author yk
  * @Date 2020/8/29 16:18
  * @Version 1.0
  **/
-public class Demo05File {
+public class Demo06File {
     /**
-     * exists()
-     * 测试此抽象路径名表示的文件或目录是否存在。
+     * 	createNewFile()
+     * 当且仅当具有该名称的文件尚不存在时，原子地创建一个由该抽象路径名命名的新的空文件。
      *
-     * 	isDirectory()
-     * 测试此抽象路径名表示的文件是否为目录。
+     * mkdir()
+     * 创建由此抽象路径名命名的目录，创建的是单级文件夹
      *
-     * 	isFile()
-     * 测试此抽象路径名表示的文件是否为普通文件
+     * mkdirs()
+     * 创建由此抽象路径名命名的目录，包括任何必需但不存在的父目录，单级或多级文件夹
+     * 当文件夹存在，不会创建，当构造方法中的路径不存在，返回false
      *
      *
      */

@@ -46,6 +46,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String sessionId = getValue(request, SessionConstant.SessionToken);
         if (StringUtil.isEmpty(sessionId)) {
             log.info("=========已被拦截===================" + false);
+            // 测试跳转链接
+            response.sendRedirect("https://item.jd.com/11620454466.html");
             ResponseJsonWrapper.writeResponse(response,
                     ResponseJsonWrapper.newErrorReturnJson(ResponseCode.NO_SESSION, "登录失败(code:1)"));
             return false;
