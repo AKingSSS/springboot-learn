@@ -28,6 +28,7 @@
         <module>spring-boot-rocket-consumer</module>
         <module>spring-boot-rocket-biz</module>
         <module>spring-boot-io</module>
+        <module>spring-boot-design-model</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
