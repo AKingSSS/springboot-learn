@@ -1,4 +1,4 @@
-package com.aking.io.stream;
+package com.aking.io.stream.out;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

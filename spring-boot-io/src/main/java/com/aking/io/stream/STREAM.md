@@ -1,2 +1,6 @@
 - Demo01ops: outPutStream
 - Demo02: 写入多个字节
+- Demo03: 换行
+- Demo04: inPutStream 读取
+- Demo05: inPutStream 读取多个字节
+- Demo06: 文件复制
