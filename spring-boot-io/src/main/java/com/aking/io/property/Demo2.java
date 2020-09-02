@@ -1,5 +1,9 @@
 package com.aking.io.property;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 
@@ -14,12 +18,25 @@ import java.util.Set;
  **/
 public class Demo2 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         show01();
     }
 
-    private static void show01() {
+    private static void show01() throws IOException {
+        /**
+         * load(InputStream inStream)
+         * 从输入字节流读取属性列表（键和元素对）
+         *
+         * load(Reader reader)
+         * 以简单的线性格式从输入字符流读取属性列表（关键字和元素对）。
+         */
 
-
+        Properties prop = new Properties();
+        prop.load(new FileReader("a.txt"));
+        Set<String> set = prop.stringPropertyNames();
+        for (String key : set) {
+            String value = prop.getProperty(key);
+            System.out.println(key + "=" + value);
+        }
     }
 }
