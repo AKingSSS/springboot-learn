@@ -29,6 +29,7 @@
         <module>spring-boot-rocket-biz</module>
         <module>spring-boot-io</module>
         <module>spring-boot-design-model</module>
+        <module>spring-boot-netty</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
