@@ -1,1 +1,4 @@
-
+name=abc
+age=12
+sex=1
+#sex=1
