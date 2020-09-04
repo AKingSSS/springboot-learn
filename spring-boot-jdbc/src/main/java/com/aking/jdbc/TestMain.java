@@ -26,8 +26,8 @@ public class TestMain {
             rs = stmt.executeQuery("SELECT * FROM owner");
             while (rs.next()) {
                 String mobile = rs.getNString("mobile");
+                log.info("mobile = " + mobile);
             }
-
         } catch (Exception e) {
             log.error("exception error:[{}]", e);
         } finally {
