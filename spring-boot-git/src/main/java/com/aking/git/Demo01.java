@@ -10,5 +10,6 @@ package com.aking.git;
 public class Demo01 {
     public static void main(String[] args) {
         System.out.println("test 分支开发修改");
+        System.out.println("test 分支开发修改2");
     }
 }
