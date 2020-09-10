@@ -1,4 +1,4 @@
-package com.aking.test.service.impl;
+package com.aking.test.service;
 
 /**
  * @ClassName HelloService
@@ -8,4 +8,9 @@ package com.aking.test.service.impl;
  * @Version 1.0
  **/
 public interface HelloService {
+    /**
+     * hello
+     * @param name
+     */
+    Boolean sayHello(String name);
 }

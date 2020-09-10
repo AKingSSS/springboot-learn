@@ -1,4 +1,4 @@
-package com.aking.task;
+package com.aking.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,11 +8,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @author Y10003453
  */
 @SpringBootApplication
-@EnableScheduling
-public class TaskApplication {
+public class TestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TaskApplication.class, args);
+        SpringApplication.run(TestApplication.class, args);
     }
 
 }
