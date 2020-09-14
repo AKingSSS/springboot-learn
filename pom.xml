@@ -33,6 +33,7 @@
         <module>spring-boot-netty</module>
         <module>spring-boot-git</module>
         <module>spring-boot-test</module>
+        <module>spring-boot-mongodb</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
