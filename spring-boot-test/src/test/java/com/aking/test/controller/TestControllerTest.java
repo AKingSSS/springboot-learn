@@ -20,4 +20,10 @@ public class TestControllerTest {
         Boolean b = helloService.sayHello("Python 大星");
         Assert.assertTrue(b);
     }
+
+    @Test
+    public void testSayHello2()   {
+        Boolean b = helloService.sayHello("Python 小星");
+        Assert.assertTrue(b);
+    }
 }
